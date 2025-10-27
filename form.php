@@ -22,13 +22,14 @@
 
     <link rel="stylesheet" href="<?= load_static('css/reset.css')?>">
     <link rel="stylesheet" href="<?= load_static('css/header.css');?>">
+    <link rel="stylesheet" href="<?= load_static('css/custom-classes.css');?>">
     
     <title>Document</title>
 </head>
 <body>
     <?php 
         $logado = false;
-        if($logado === true){
+        if($logado === false){
             include __DIR__ . '/templates/header.php';
         }else{
             include __DIR__ . '/templates/header-logado.php';
