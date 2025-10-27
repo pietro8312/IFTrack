@@ -29,7 +29,7 @@ The project combines **web technologies** and **real-time data visualization**, 
 | Category | Stack |
 |-----------|--------|
 | **Frontend** | HTML5, CSS3, JavaScript (React) |
-| **Backend** | Python (Flask) |
+| **Backend** | PHP |
 | **Database** | MySQL / SQLite |
 | **Version Control** | Git & GitHub |
 | **Other Tools** | Figma (UI Design), Postman (API Tests) |

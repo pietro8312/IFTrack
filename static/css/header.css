@@ -1,0 +1,57 @@
+.tracker-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    height: 10vh;
+
+    padding: 0 4rem;
+    background-color: aliceblue;
+}
+
+.tracker-logo svg{
+    height: 60%;
+    width: 20%;
+}
+
+.tracker-links{
+    display: flex;
+    justify-content: space-between;
+}
+
+#login{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 200px;
+    height: 70%;
+
+    box-sizing: border-box;
+
+    padding: 0 2rem;
+
+    border-radius: 20px;
+
+    background-color: #1C274C;
+
+    cursor: pointer;
+}
+
+#login svg{
+    height: 70%;
+    width: min-content;
+    padding: .2rem;
+
+    background-color: #fff;
+    border-radius: 100%;
+}
+
+#login p{
+    text-align: center;
+    
+    font-weight: bolder;
+    font-size: 1.2rem;
+    color: #fff;
+}
