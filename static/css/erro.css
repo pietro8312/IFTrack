@@ -1,0 +1,49 @@
+.msg{
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    box-sizing: border-box;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 150px;
+    width: 200px;
+
+    padding: 1rem 0 0 0;
+    background-color: rgb(81, 151, 207);
+    border-radius: 20px;
+
+    box-shadow: 8px 8px 4px #74abca9f;
+    z-index: 999;
+
+    animation: mover .5s alternate;
+}
+
+@keyframes mover {
+  from { right: -14rem; }
+  to { right: 3rem; }
+}
+
+@keyframes remover {
+    from { right: 3rem; }
+    to { right: -14rem; }
+}
+
+.msg.move{
+    right: 4rem;
+}
+
+.msg h1{
+    margin-bottom: 1.2rem;
+}
+
+.msg p{
+    width: 100%;
+    padding: 0 0 0 1rem;
+    text-align: left;
+}
+
+.msg *{
+    color: #fff;
+    font-weight: bold;
+}

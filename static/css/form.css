@@ -1,0 +1,39 @@
+body#form{
+    height: 100dvh;
+    width: 100vw;
+    overflow-y: hidden;
+}
+
+.tracker-titulo-form{
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+
+    margin-bottom: 4rem;
+}
+
+.tracker-form-pos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 40%;
+
+    background-color: #4c5470;
+}
+
+.tracker-form{
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 45% 45%;
+    row-gap: 3rem;
+    height: 40%;
+    padding: 0 1rem;
+}
+
+#senhas{
+    display: flex;
+    flex-direction: row;
+
+    column-gap: 2rem;
+}

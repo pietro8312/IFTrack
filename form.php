@@ -1,18 +1,4 @@
-<?php 
-    include __DIR__ . '/config/helper.php';
-
-    if(isset($_POST['submit'])){
-
-        include_once('../IFtrack/config/config.php');
-
-        $nome = $_POST['nome'];
-        $email = $_POST['email'];
-        $telefone = $_POST['telefone'];
-
-        $result = mysqli_query($conexao, "INSERT INTO form(nome, email, telefone) 
-        VALUES('$nome', '$email', '$telefone')");
-    }
-?>
+<?php  include __DIR__ . '/config/helper.php';  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +9,10 @@
     <link rel="stylesheet" href="<?= load_static('css/reset.css')?>">
     <link rel="stylesheet" href="<?= load_static('css/header.css');?>">
     <link rel="stylesheet" href="<?= load_static('css/custom-classes.css');?>">
+    <link rel="stylesheet" href="<?= load_static('css/erro.css');?>">
+
+    <script src="<?= load_static('js/header.js')?>" defer></script>
+    
     
     <title>Document</title>
 </head>
@@ -31,6 +21,7 @@
         $logado = false;
         if($logado === false){
             include __DIR__ . '/templates/header.php';
+            echo includeWithMessage('templates/erro.php', 'Voce nao esta logado');
         }else{
             include __DIR__ . '/templates/header-logado.php';
         }

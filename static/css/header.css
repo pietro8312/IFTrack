@@ -20,6 +20,10 @@
     justify-content: space-between;
 }
 
+.tracker-links .tracker-btn{
+    margin-left: 2rem;
+}
+
 #login{
     display: flex;
     justify-content: space-around;
@@ -54,4 +58,40 @@
     font-weight: bolder;
     font-size: 1.2rem;
     color: #fff;
+}
+
+#list-perfil{
+    display: none;
+    flex-direction: column;
+    justify-content: top;
+
+    position: absolute;
+    top: 10vh;
+    right: 4rem;
+
+    box-sizing: border-box;
+
+    min-height: 150px;
+    width: 199px;
+
+    border-radius: 25px;
+    border-top-left-radius: 0;
+
+    background-color: rgb(133, 164, 192);
+}
+
+#list-perfil li:first-child{
+    border-top-right-radius: 25px;
+}
+
+#list-perfil li{
+    padding: 1rem 0 .5rem .5rem;
+
+    font-weight: bold;
+
+    color: #fff;
+}
+
+#list-perfil li:hover{
+    background-color: #1C274C;
 }
