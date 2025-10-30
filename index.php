@@ -1,4 +1,9 @@
-<?php  include __DIR__ . '/config/helper.php';  ?>
+<?php  
+    include __DIR__ . '/config/helper.php';
+    if(!isset($_SESSION)){
+        session_start();
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,16 +17,14 @@
     <link rel="stylesheet" href="<?= load_static('css/erro.css');?>">
 
     <script src="<?= load_static('js/header.js')?>" defer></script>
-    
+    <script src="<?= load_static('js/erro.js')?>" defer></script>
     
     <title>Document</title>
 </head>
 <body>
     <?php 
-        $logado = false;
-        if($logado === false){
+        if(empty($_SESSION['id']) || empty($_SESSION['nome'] || empty($_SESSION['email']))){
             include __DIR__ . '/templates/header.php';
-            echo includeWithMessage('templates/erro.php', 'Voce nao esta logado');
         }else{
             include __DIR__ . '/templates/header-logado.php';
         }

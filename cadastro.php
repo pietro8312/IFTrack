@@ -7,7 +7,7 @@
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Verifica conexão com o banco
             if (isset($conexao) && $conexao->connect_error) {
-                echo includeWithMessage(__DIR__ . '/templates/erro.php', 'Erro na conexão com o banco: ' . $conexao->connect_error);
+                echo includeWithMessage(__DIR__ . 'templates/erro.php', 'Erro na conexão com o banco: ' . $conexao->connect_error);
                 exit;
             }
 
@@ -18,24 +18,49 @@
             $confirm = isset($_POST['confirmSenha']) ? $_POST['confirmSenha'] : '';
 
             if (empty($nome) || empty($email) || empty($senha) || empty($confirm)) {
-                echo includeWithMessage(__DIR__ . '/templates/erro.php', 'Preencha todos os campos');
+                echo includeWithMessage(__DIR__ . 'templates/erro.php', 'Todos os campos devem estar preenchidos');
             } elseif ($senha !== $confirm) {
-                echo includeWithMessage(__DIR__ . '/templates/erro.php', 'As senhas nao conferem');
+                echo includeWithMessage(__DIR__ . 'templates/erro.php', 'As senhas nao conferem');
             } elseif (!preg_match('/[!@#$%^&*(),.?":{}|<>]/', $senha) || strlen($senha) < 6) {
-                echo includeWithMessage(__DIR__ . '/templates/erro.php', 'A senha deve ter no minimo um caractere especial, e no minimo 6 caracteres');
+                echo includeWithMessage(__DIR__ . 'templates/erro.php', 'A senha deve ter no minimo um caractere especial, e no minimo 6 caracteres');
             } else {
+                // Verifica se usuário já existe
+                $check_sql = "SELECT id FROM form WHERE nome = ? LIMIT 1";
+                $check_stmt = $conexao->prepare($check_sql);
+                if (!$check_stmt) {
+                    header('Location: /IFtrack/index.php?error=' . urlencode('Erro no servidor'));
+                    exit;
+                }
+                
+                $check_stmt->bind_param('s', $nome);
+                $check_stmt->execute();
+                $check_stmt->store_result();
+                
+                if ($check_stmt->num_rows > 0) {
+                    echo includeWithMessage('templates/erro.php', 'Usuario ja existente');
+                }
+                $check_stmt->close();
+
                 // Hash de senha
                 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-                $sql = "INSERT INTO form (nome, email, senha) VALUES ('{$nome}', '{$email}', '{$senha_hash}')";
-                $result = mysqli_query($conexao, $sql);
+                // Prepared statement para inserção
+                $sql = "INSERT INTO form (nome, email, senha) VALUES (?, ?, ?)";
+                $stmt = $conexao->prepare($sql);
+                
+                if (!$stmt) {
+                    header('Location: /IFtrack/index.php?error=' . urlencode('Erro no servidor'));
+                    exit;
+                }
 
-                if ($result) {
-                    echo includeWithMessage(__DIR__ . '/templates/erro.php', 'Cadastro realizado com sucesso');
+                $stmt->bind_param('sss', $nome, $email, $senha_hash);
+                
+                if ($stmt->execute()) {
+                    header('Location: /IFtrack/index.php?success=1');
+                    exit;
                 } else {
-                    // Mensagem de erro útil para debug
-                    $erro = mysqli_error($conexao);
-                    echo includeWithMessage(__DIR__ . '/templates/erro.php', 'Erro ao cadastrar: ' . $erro);
+                    echo includeWithMessage('templates/erro.php', 'Usuario ja existente');
+                    exit;
                 }
             }
         }

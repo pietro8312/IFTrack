@@ -1,0 +1,42 @@
+.perf{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    justify-self: center;
+    align-items: center;
+
+    height: 70vh;
+    width: 60%;
+
+    margin-top: 5rem;
+    background-color: #a4b4c2;
+}
+#circulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20rem;    
+    width: 20rem;    
+
+    margin-top: 2rem;
+
+    border-radius: 100%;
+    background-color: rgb(58, 62, 83);
+}
+
+#circulo{
+    color: #fff;;
+    font-weight: bolder;
+    font-size: 5rem;
+}
+
+#pos-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 200px;
+
+    margin: 4rem 0 0 0;
+}

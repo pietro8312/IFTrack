@@ -20,6 +20,27 @@
     justify-content: space-between;
 }
 
+#a-pos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    width: 40%;
+}
+
+#a-pos>a{
+    font-weight: bolder;
+    color: #1C274C;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+#a-pos>a:hover{
+    background-color: rgb(156, 168, 173);
+}
+
 .tracker-links .tracker-btn{
     margin-left: 2rem;
 }
@@ -80,18 +101,20 @@
     background-color: rgb(133, 164, 192);
 }
 
-#list-perfil li:first-child{
+#list-perfil a:first-child{
     border-top-right-radius: 25px;
 }
 
-#list-perfil li{
+#list-perfil a{
     padding: 1rem 0 .5rem .5rem;
 
     font-weight: bold;
 
+    text-decoration: none;
+
     color: #fff;
 }
 
-#list-perfil li:hover{
+#list-perfil a:hover{
     background-color: #1C274C;
 }

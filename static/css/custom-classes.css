@@ -1,3 +1,12 @@
+.tracker-p{
+    width: 100%;
+    padding-bottom: .5rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
 .tracker-btn{
     box-sizing: border-box;
 

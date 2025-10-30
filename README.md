@@ -28,13 +28,11 @@ The project combines **web technologies** and **real-time data visualization**, 
 
 | Category | Stack |
 |-----------|--------|
-| **Frontend** | HTML5, CSS3, JavaScript (React) |
+| **Frontend** | HTML5, CSS3, JavaScript |
 | **Backend** | PHP |
 | **Database** | MySQL / SQLite |
 | **Version Control** | Git & GitHub |
-| **Other Tools** | Figma (UI Design), Postman (API Tests) |
-
-> ⚙️ *(You can adjust this table later based on what stack you actually use.)*
+| **Other Tools** | Figma (UI Design) |
 
 ---
 
@@ -58,13 +56,41 @@ quando estiver pronto adicionar um gif/img
 
 ## 🧭 How to Run Locally
 
-```bash
-# Clone the repository
+
+# 📦 Clone the Repository
 git clone https://github.com/pietrodonicht/IFTrack.git
 
-# Enter the folder
-cd IFTrack
+⚙️ Download Requirements
 
-# (If using Python backend)
-pip install -r requirements.txt
-python app.py
+XAMPP
+ or WAMP
+
+Move the cloned repository to:
+
+C:\xampp\htdocs
+
+🗄️ Configure the Database
+
+Open http://localhost/phpmyadmin/
+
+Create a new database named iftrack
+
+Run the following SQL command to create the form table:
+
+CREATE TABLE form (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    bio VARCHAR(500)
+);
+
+🚀 Run the Project
+
+Open XAMPP
+
+Start Apache and MySQL
+
+In your browser, go to:
+
+http://localhost/IFTrack/
