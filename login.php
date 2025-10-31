@@ -19,7 +19,7 @@
         }
 
         // Usar prepared statement para prevenir SQL injection
-        $sql = "SELECT * FROM form WHERE nome = ? OR email = ? LIMIT 1";
+        $sql = "SELECT * FROM usuarios WHERE nome = ? OR email = ? LIMIT 1";
         $stmt = $conexao->prepare($sql);
 
         if (!$stmt) {

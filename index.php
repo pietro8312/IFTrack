@@ -19,6 +19,10 @@
     <script src="<?= load_static('js/header.js')?>" defer></script>
     <script src="<?= load_static('js/erro.js')?>" defer></script>
     
+    <!--    funcionamento do leaflet    -->
+    <link rel="stylesheet" href="<?= load_static('css/leaflet.css')?>">
+    <script src="<?= load_static('js/leaflet.js')?>" defer></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -29,5 +33,7 @@
             include __DIR__ . '/templates/header-logado.php';
         }
     ?>
+
+    <div id="map"></div>
 </body>
 </html>

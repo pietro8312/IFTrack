@@ -1,6 +1,14 @@
 <?php 
     include __DIR__ . '/config/config.php';
     include __DIR__ . '/config/helper.php';
+
+    session_start(); // precisa sempre começar a sessão
+
+    if (!isset($_SESSION['id'])) {
+        // o usuário não está logado
+        header('Location: /IFTrack/?Erro=usuario-nao-logado');
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>

@@ -25,7 +25,7 @@
                 echo includeWithMessage(__DIR__ . 'templates/erro.php', 'A senha deve ter no minimo um caractere especial, e no minimo 6 caracteres');
             } else {
                 // Verifica se usuário já existe
-                $check_sql = "SELECT id FROM form WHERE nome = ? LIMIT 1";
+                $check_sql = "SELECT id FROM usuarios WHERE nome = ? LIMIT 1";
                 $check_stmt = $conexao->prepare($check_sql);
                 if (!$check_stmt) {
                     header('Location: /IFtrack/index.php?error=' . urlencode('Erro no servidor'));
@@ -45,7 +45,7 @@
                 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
                 // Prepared statement para inserção
-                $sql = "INSERT INTO form (nome, email, senha) VALUES (?, ?, ?)";
+                $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
                 $stmt = $conexao->prepare($sql);
                 
                 if (!$stmt) {
